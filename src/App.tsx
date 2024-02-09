@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Post from './posts/Post';
 
 function App() {
-	const [data, setData] = useState<Post[]>([]);
+	const [data, setData] = useState<PostModel[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -38,11 +39,9 @@ function App() {
 			)}
 		<ul>
 		{data &&
-			data.map(( {id, description, image} ) => (
-			<li key={id}>
-				<h3>{id}</h3>
-				<h3>{description}</h3>
-				<img alt='img' src={image}/>
+			data.map(( post ) => (
+			<li key={post.id}>
+				<Post post={post}></Post>
 			</li>
 			))}
 		</ul>
