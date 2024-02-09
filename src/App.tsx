@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Post from './posts/Post';
+import { PostList } from './posts/PostList';
 
 function App() {
 	const [data, setData] = useState<PostModel[]>([]);
@@ -32,19 +32,11 @@ function App() {
 	}, []);
 	console.log(data);
 	return <div className="App">
-		<h1>API Posts</h1>
-			{loading && <div>A moment please...</div>}
-			{error && (
-			<div>{`There is a problem fetching the post data - ${error}`}</div>
-			)}
-		<ul>
-		{data &&
-			data.map(( post ) => (
-			<li key={post.id}>
-				<Post post={post}></Post>
-			</li>
-			))}
-		</ul>
+		{loading && <div>A moment please...</div>}
+		{error && (
+		<div>{`There is a problem fetching the post data - ${error}`}</div>
+		)}
+		{data && <PostList posts = {data}></PostList>}
 	</div>;
 }
 
