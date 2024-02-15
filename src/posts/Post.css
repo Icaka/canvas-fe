@@ -1,0 +1,19 @@
+.postContainer img{
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.postContainer{
+    text-align: center;
+}
+
+.pListContainer{
+    /*border-left: 1px solid;
+    border-right: 1px solid;*/
+    margin: auto;
+}
+
+.pListContainer ul{
+    text-align: center;
+    list-style: none;
+}
